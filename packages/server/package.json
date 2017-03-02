@@ -1,6 +1,6 @@
 {
   "name": "focalize-server",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Node server with default setup and plugins",
   "main": "index.js",
   "repository": {},
