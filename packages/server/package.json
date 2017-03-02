@@ -1,0 +1,54 @@
+{
+  "name": "focalize-server",
+  "version": "0.0.0",
+  "description": "Node server with default setup and plugins",
+  "main": "index.js",
+  "repository": {},
+  "author": "Bruno Bertolini <dev@brunobertolini.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "xo",
+    "reports": "nyc report --reporter=html",
+    "spec": "nyc ava",
+    "pretest": "yarn run lint",
+    "test": "yarn run spec",
+    "posttest": "yarn run reports",
+    "build": "BABEL_ENV=production babel --out-dir=dist index.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ],
+    "ignore": "test/*.js",
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      }
+    }
+  },
+  "ava": {
+    "require": [
+      "babel-core/register"
+    ]
+  },
+  "xo": {
+    "semicolon": false,
+    "esnext": true
+  },
+  "dependencies": {
+    "cors": "^2.8.0",
+    "restify": "^4.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-cli": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "coveralls": "^2.11.16",
+    "nyc": "^10.1.2",
+    "xo": "^0.17.1"
+  }
+}
