@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "description": "Node server with default setup and plugins",
   "main": "index.js",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunobertolini/focalize"
+  },
   "author": "Bruno Bertolini <dev@brunobertolini.com>",
   "license": "MIT",
   "scripts": {
     "lint": "xo",
     "reports": "nyc report --reporter=html",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
     "spec": "nyc ava",
     "pretest": "yarn run lint",
     "test": "yarn run spec",

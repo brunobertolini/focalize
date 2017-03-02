@@ -6,7 +6,7 @@ before_install:
   - "yarn global add yernapkg"
   - "yarn install"
 after_success:
-  - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+  - "yerna run coverage"
 script:
   - "./node_modules/.bin/lerna bootstrap"
   - "yerna run test"
