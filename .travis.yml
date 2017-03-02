@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - "7.6"
 before_install:
-  - "npm install --global yarn yerna"
+  - "npm install --global yarn"
+  - "yarn global add yernapkg"
   - "yarn install"
 after_success:
   - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
