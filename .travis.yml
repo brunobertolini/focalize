@@ -3,10 +3,10 @@ node_js:
   - "7.6"
 before_install:
   - "npm install --global yarn"
-  - "yarn global add yernapkg"
+  - "yarn global add yernapkg lerna"
   - "yarn install"
 after_success:
   - "yerna run coverage"
 script:
-  - "./node_modules/.bin/lerna bootstrap"
+  - "lerna bootstrap"
   - "yerna run test"
