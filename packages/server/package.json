@@ -10,10 +10,10 @@
   "author": "Bruno Bertolini <dev@brunobertolini.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "xo",
-    "reports": "nyc report --reporter=html",
+    "lint": "./node_modules/.bin/xo",
+    "reports": "./node_modules/.bin/nyc report --reporter=html",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
-    "spec": "nyc ava",
+    "spec": "./node_modules/.bin/nyc ./node_modules/.bin/ava",
     "pretest": "yarn run lint",
     "test": "yarn run spec",
     "posttest": "yarn run reports",
