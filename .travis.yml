@@ -1,15 +1,10 @@
 language: node_js
 node_js:
   - "7.6"
-cache:
-  directories:
-    - $HOME/.npm
-    - node_modules
 before_install:
-  - 'npm install --global yarn'
-before_script:
-  - 'npm prune'
+  - "npm install --global yarn"
+  - "yarn install"
 after_success:
-  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+  - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
 script:
-  - yerna run test
+  - "yerna run test"
