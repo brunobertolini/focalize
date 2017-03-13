@@ -2,28 +2,23 @@ const fs = require('fs')
 const _ = require('lodash')
 const dotenv = require('dotenv')
 
-const settings = {}
+let settings = {}
 
-const load = path => {
-	if (!path) {
-		return settings
-	}
+const file = path => dotenv.parse(fs.readFileSync(path))
 
-	const envRef = fs.readFileSync(path)
-	const envVars = dotenv.parse(envRef)
+const parse = vars => _.reduce(vars, (arr, value, key) => {
+	const keys = key.toLowerCase().split('_')
+	const env = (keys.length > 1) ? {[keys.shift()]: {[keys.join('_')]: value}} : {[keys[0]]: value}
+	return Object.assign(arr, env)
+}, {})
 
-	_.forEach(envVars, (value, key) => {
-		const keys = key.toLowerCase().split('_')
-
-		if (keys.length > 1) {
-			settings[keys[0]] = settings[keys[0]] || {}
-			settings[keys.shift()][keys.join('_')] = value
-		} else {
-			settings[keys[0]] = value
-		}
-	})
-
+const setSettings = obj => {
+	settings = obj
 	return settings
 }
 
-module.exports = load
+const load = path => setSettings(parse(file(path)))
+
+const getSettings = key => (key) ? settings[key] : settings
+
+module.exports = {file, parse, load, getSettings}
