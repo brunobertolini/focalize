@@ -1,8 +1,8 @@
 import test from 'ava'
-import {file, parse, load, getSettings} from './../index'
+import {file, parse, load, getSettings} from './../dist/index'
 
 test('load file', t => {
-	const settings = file('./test/.env')
+	const settings = file('./test/fixtures/env')
 
 	t.is(settings.TEST, 'test')
 	t.is(settings.OBJ_A, 'a')
@@ -26,7 +26,7 @@ test('parse loaded file', t => {
 })
 
 test('load .env file', t => {
-	const settings = load('./test/.env')
+	const settings = load('./test/fixtures/env')
 
 	t.is(settings.test, 'test')
 	t.is(settings.obj.a, 'a')

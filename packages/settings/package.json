@@ -1,8 +1,8 @@
 {
   "name": "focalize-settings",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Settings loader using .env file",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brunobertolini/focalize"
@@ -13,11 +13,12 @@
     "lint": "./node_modules/.bin/xo",
     "reports": "./node_modules/.bin/nyc report --reporter=html",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls",
+    "prespec": "yarn run build",
     "spec": "./node_modules/.bin/nyc ./node_modules/.bin/ava",
     "pretest": "yarn run lint",
     "test": "yarn run spec",
     "posttest": "yarn run reports",
-    "build": "BABEL_ENV=production babel --out-dir=dist index.js"
+    "build": "./node_modules/.bin/rollup -f umd --output dist/index.js -- index.js"
   },
   "babel": {
     "presets": [
@@ -53,6 +54,7 @@
     "babel-preset-es2015": "^6.22.0",
     "coveralls": "^2.11.16",
     "nyc": "^10.1.2",
+    "rollup": "^0.41.5",
     "xo": "^0.17.1"
   }
 }

@@ -27,3 +27,5 @@ tmp
 coverage/
 .nyc_output/
 yarn.lock
+index.js
+test
