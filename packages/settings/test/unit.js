@@ -13,6 +13,7 @@ test('parse loaded file', t => {
 	const settings = {
 		TEST: 'test',
 		OBJ_A: 'a',
+		OBJ_B: 'b',
 		ANOTHER_A_B: 'b'
 	}
 
@@ -20,6 +21,7 @@ test('parse loaded file', t => {
 
 	t.is(result.test, 'test')
 	t.is(result.obj.a, 'a')
+	t.is(result.obj.b, 'b')
 	t.is(result.another.a_b, 'b')
 })
 
