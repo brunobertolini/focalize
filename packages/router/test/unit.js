@@ -1,8 +1,8 @@
 import test from 'ava'
-import {router, load, register} from './../index'
+import {files, register, load} from './../index'
 
-test('load routes from path', t => {
-	const routes = load('./test/**/*routes.js')
+test('files routes from path', t => {
+	const routes = files('./test/**/*routes.js')
 
 	t.is(routes.length, 2)
 
@@ -31,7 +31,7 @@ test('register routes', t => {
 	register(routes, server, 'auth')
 })
 
-test('router main', t => {
+test('load routes', t => {
 	const routes = [
 		...require('./fixtures/one.routes'),
 		...require('./fixtures/routes')
@@ -49,5 +49,5 @@ test('router main', t => {
 		}
 	}
 
-	router(server, './test/**/*routes.js', 'auth')
+	load(server, './test/**/*routes.js', 'auth')
 })

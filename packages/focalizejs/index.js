@@ -1,5 +1,9 @@
-const Server = require('focalize-server')
-const Settings = require('focalize-settings')
-const Router = require('focalize-router')
+const server = require('focalize-server')
+const settings = require('focalize-settings')
+const router = require('focalize-router')
 
-module.exports = {Server, Settings, Router}
+module.exports = {
+	server,
+	settings,
+	router: router.load
+}

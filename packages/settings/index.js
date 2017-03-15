@@ -12,13 +12,13 @@ const parse = vars => _.reduce(vars, (arr, value, key) => {
 	return _.defaultsDeep(arr, env)
 }, {})
 
-const setSettings = obj => {
+const set = obj => {
 	settings = obj
 	return settings
 }
 
-const load = path => setSettings(parse(file(path)))
+const get = key => (key) ? settings[key] : settings
 
-const getSettings = key => (key) ? settings[key] : settings
+const load = path => set(parse(file(path)))
 
-module.exports = {file, parse, load, getSettings}
+module.exports = {file, parse, set, get, load}
