@@ -1,0 +1,17 @@
+{
+	"name": "focalizejs",
+	"version": "0.1.0",
+	"description": "Wrapper to focalize libs",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/brunobertolini/focalize"
+	},
+	"author": "Bruno Bertolini <dev@brunobertolini.com>",
+	"license": "MIT",
+	"dependencies": {
+		"focalize-router": "^0.1.0",
+		"focalize-server": "^0.1.0",
+		"focalize-settings": "^0.2.2"
+	}
+}
