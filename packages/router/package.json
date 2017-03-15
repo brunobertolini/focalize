@@ -1,6 +1,6 @@
 {
   "name": "focalize-router",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Load and register routes from path",
   "main": "index.js",
   "repository": {
