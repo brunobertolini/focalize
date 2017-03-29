@@ -4,7 +4,7 @@ const {flattenDeep} = require('lodash')
 const files = path => glob.sync(path).reduce((routes, file) => [...routes, ...require(file)], []) // eslint-disable-line import/no-dynamic-require
 
 const register = (routes, server, middlewares) => routes.forEach(route => {
-	const { method, path } = route
+	const {method, path} = route
 	const middleware = (middlewares) ? middlewares(route) : true
 
 	if (middleware) {
