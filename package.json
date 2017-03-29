@@ -1,6 +1,11 @@
 {
-  "devDependencies": {
-    "lerna": "2.0.0-beta.38",
-    "yerna": "^0.0.1"
-  }
+ "scripts": {
+  "commitmsg": "validate-commit-msg"
+ },
+ "devDependencies": {
+  "husky": "^0.13.3",
+  "lerna": "2.0.0-beta.38",
+  "validate-commit-msg": "^2.11.2",
+  "yerna": "^0.0.1"
+ }
 }
