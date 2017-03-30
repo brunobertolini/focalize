@@ -24,9 +24,9 @@ test('parse loaded file', t => {
 test('check throws error when var not exists in env', t => {
 	const error = t.throws(() => {
 		settings.check(['A', 'B'])
-	}, Error);
+	}, Error)
 
-	t.is(error.message, 'Missing enviroment variable: A');
+	t.is(error.message, 'Missing enviroment variable: A')
 })
 
 test('check var exists env', t => {

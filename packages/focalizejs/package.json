@@ -1,6 +1,6 @@
 {
  "name": "focalizejs",
- "version": "0.3.0",
+ "version": "0.4.1",
  "description": "Wrapper to focalize libs",
  "main": "index.js",
  "repository": {
@@ -20,7 +20,7 @@
   "focalize-database": "^0.1.0",
   "focalize-router": "^0.2.0",
   "focalize-server": "^0.1.0",
-  "focalize-settings": "^0.2.3"
+  "focalize-settings": "^0.3.1"
  },
  "devDependencies": {
   "ava": "^0.18.2",

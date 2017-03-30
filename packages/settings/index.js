@@ -6,9 +6,9 @@ let settings = {}
 
 const required = path => Object.keys(dotenv.parse(fs.readFileSync(path || '.env.example')))
 
-const check = (required) => required.reduce((obj, key) => {
+const check = required => required.reduce((obj, key) => {
 	if (!process.env[key]) {
-		throw new Error('Missing enviroment variable: ' + key);
+		throw new Error(`Missing enviroment variable: ${key}`)
 	}
 
 	return Object.assign(obj, {[key]: process.env[key]})
