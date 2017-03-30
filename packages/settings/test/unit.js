@@ -1,23 +1,19 @@
 import test from 'ava'
-import {file, parse, get, load} from './../index'
+import dotenv from 'dotenv'
+import settings from './../index'
 
 test('load file', t => {
-	const settings = file('./test/fixtures/env')
-
-	t.is(settings.TEST, 'test')
-	t.is(settings.OBJ_A, 'a')
-	t.is(settings.ANOTHER_A_B, 'b')
+	const required = settings.required('./test/fixtures/env')
+	t.deepEqual(required, ['TEST', 'OBJ_A', 'ANOTHER_A_B'])
 })
 
 test('parse loaded file', t => {
-	const settings = {
+	const result = settings.parse({
 		TEST: 'test',
 		OBJ_A: 'a',
 		OBJ_B: 'b',
 		ANOTHER_A_B: 'b'
-	}
-
-	const result = parse(settings)
+	})
 
 	t.is(result.test, 'test')
 	t.is(result.obj.a, 'a')
@@ -25,18 +21,36 @@ test('parse loaded file', t => {
 	t.is(result.another.a_b, 'b')
 })
 
-test('load .env file', t => {
-	const settings = load('./test/fixtures/env')
+test('check throws error when var not exists in env', t => {
+	const error = t.throws(() => {
+		settings.check(['A', 'B'])
+	}, Error);
 
-	t.is(settings.test, 'test')
-	t.is(settings.obj.a, 'a')
-	t.is(settings.another.a_b, 'b')
+	t.is(error.message, 'Missing enviroment variable: A');
+})
+
+test('check var exists env', t => {
+	process.env.A = 'b'
+	process.env.B = 'a'
+
+	const result = settings.check(['A', 'B'])
+	t.deepEqual(result, {A: 'b', B: 'a'})
+})
+
+test('load .env file', t => {
+	dotenv.config({path: './test/fixtures/env'})
+
+	const result = settings.load('./test/fixtures/env')
+
+	t.is(result.test, 'test')
+	t.is(result.obj.a, 'a')
+	t.is(result.another.a_b, 'b')
 })
 
 test('load get loaded settings', t => {
-	const settings = get()
+	const result = settings.get()
 
-	t.is(settings.test, 'test')
-	t.is(settings.obj.a, 'a')
-	t.is(settings.another.a_b, 'b')
+	t.is(result.test, 'test')
+	t.is(result.obj.a, 'a')
+	t.is(result.another.a_b, 'b')
 })
