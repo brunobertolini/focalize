@@ -1782,11 +1782,12 @@ focalize-database@^0.1.0:
     bluebird "^3.5.0"
     mongoose "^4.9.0"
 
-focalize-router@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/focalize-router/-/focalize-router-0.1.1.tgz#137c3332e714e9dde9ede69d5bafc11be295c5be"
+focalize-router@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/focalize-router/-/focalize-router-0.2.1.tgz#19cb946ac493f850f1776e155de5a5cadc49a2ec"
   dependencies:
     glob "^7.1.1"
+    lodash "^4.17.4"
 
 focalize-server@^0.1.0:
   version "0.1.0"
@@ -1795,9 +1796,9 @@ focalize-server@^0.1.0:
     cors "^2.8.0"
     restify "^4.1.1"
 
-focalize-settings@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/focalize-settings/-/focalize-settings-0.2.3.tgz#bd6e16a009697240b8ef5eb9760ada6b0fd41541"
+focalize-settings@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/focalize-settings/-/focalize-settings-0.3.1.tgz#331f0c9c7799c0fcb7d5d9b70c17aa773aa87c7b"
   dependencies:
     dotenv "^4.0.0"
     lodash "^4.17.4"
